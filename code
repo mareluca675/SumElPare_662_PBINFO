@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long long mat[1001][1001], i, j, n, m, sum = 0, summax = -1, indicesummax = 0;
+    
+    cin >> n >> m;
+    
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= m; j++)
+        {
+            cin >> mat[i][j];
+        }
+    }
+    
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= m; j++)
+        {
+            if(mat[i][j] % 2 == 0)
+            {
+                sum = sum + mat[i][j];
+            }
+        }
+        if(sum > summax)
+        {
+            summax = sum;
+            indicesummax = i;
+        }
+        sum = 0;
+    }
+    
+    cout << indicesummax;
+    
+    
+
+    return 0;
+}
